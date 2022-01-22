@@ -1,8 +1,7 @@
 import React from "react";
-import { View } from "react-native";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import ViewImageScreen from "./screens/ViewImageScreen";
+import Navigator from "./routes/HomeStack";
+// import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  return <WelcomeScreen />;
+  return Navigator();
 }

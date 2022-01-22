@@ -1,10 +1,21 @@
 //rfs - react stateless function
-
 import React from "react";
-import { View, Image, StyleSheet, ImageBackground, Text } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import colors from "../config/colors";
+import ViewImageScreen from "./ViewImageScreen";
 
-export default WelcomeScreen = () => {
+export default WelcomeScreen = ({ navigation }) => {
+  const pressHandler = () => {
+    navigation.navigate("ViewImageScreen");
+  };
+
   return (
     <ImageBackground
       style={styles.background}
@@ -14,8 +25,14 @@ export default WelcomeScreen = () => {
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
         <Text>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+      <TouchableOpacity onPress={pressHandler} style={styles.loginButton}>
+        <View style={styles.loginButton}>
+          <Text>View Image Screen</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={styles.registerButton}>
+        <Text>Register</Text>
+      </View>
     </ImageBackground>
   );
 };
@@ -28,6 +45,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginButton: {
+    position: "relative",
+    alignItems: "center",
     width: "100%",
     height: 70,
     backgroundColor: colors.primary,
@@ -42,6 +61,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   registerButton: {
+    position: "relative",
+    alignItems: "center",
     width: "100%",
     height: 70,
     backgroundColor: colors.secondary,
